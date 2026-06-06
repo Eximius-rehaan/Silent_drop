@@ -67,11 +67,49 @@ Send
 
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
 <script>
-function sendMessage(){
+
+const supabaseUrl = https://lwtxdmyduytcztgtbmwy.supabase.co/rest/v1/
+const supabaseKey = eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Imx3dHhkbXlkdXl0Y3p0Z3RibXd5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODA3Njc5MjcsImV4cCI6MjA5NjM0MzkyN30.ziw1rJ1XQSfVjE16V9KaOEaV6Hfq7__2iOXfeE7gtUw
+
+const client =
+supabase.createClient(
+supabaseUrl,
+supabaseKey
+);
+
+async function sendMessage(){
+
+const msg =
+document.getElementById("message").value;
+
+if(!msg){
+document.getElementById("status").innerText =
+"Write a message first";
+return;
+}
+
+const { error } =
+await client
+.from("messages")
+.insert([
+{ content: msg }
+]);
+
+if(error){
+document.getElementById("status").innerText =
+"Failed to send";
+}
+else{
 document.getElementById("status").innerText =
 "Message sent!";
+document.getElementById("message").value="";
 }
+
+}
+
 </script>
 
 </body>
