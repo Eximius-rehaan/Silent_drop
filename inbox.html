@@ -41,11 +41,35 @@ supabaseKey
 
 async function loadMessages(){
 
-const { data, error } =
-await client
-.from("messages")
-.select("*")
-.order("id",{ascending:false});
+  const { data, error } =
+  await client
+  .from("messages")
+  .select("*")
+  .order("id",{ascending:false});
+
+  if(error){
+    document.getElementById("messages").innerHTML =
+      "Error: " + error.message;
+    console.log(error);
+    return;
+  }
+
+  const container =
+  document.getElementById("messages");
+
+  container.innerHTML="";
+
+  data.forEach(msg=>{
+
+    container.innerHTML += `
+    <div class="message">
+      ${msg.content}
+    </div>
+    `;
+
+  });
+
+}
 
 const container =
 document.getElementById("messages");
