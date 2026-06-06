@@ -60,10 +60,6 @@ font-size:16px;
 background:rgba(255,255,255,0.9);
 }
  
-<textarea id="message"
-placeholder="Type your message..."></textarea>
-
-<p id="counter">0/500</p>
  
 button{
 width:100%;
@@ -131,13 +127,16 @@ color:rgba(255,255,255,0.7);
 <div class="particles"></div>
 
 <div class="card">
+
 <h1>💬 Silent Drop</h1>
 
 <p>Say whatever you want.</p>
 
 <textarea id="message"
 placeholder="Type your message..."></textarea>
+
 <p id="counter">0/500</p>
+
 <button onclick="sendMessage()">
 Send
 </button>
@@ -145,7 +144,6 @@ Send
 <p class="credit">👾 Silent Drop • By Rehaan</p>
 
 <p id="status"></p>
-
 
 </div>
 
@@ -161,6 +159,13 @@ supabase.createClient(
 supabaseUrl,
 supabaseKey
 );
+  
+const textarea = document.getElementById("message");
+const counter = document.getElementById("counter");
+
+textarea.addEventListener("input", () => {
+  counter.innerText = textarea.value.length + "/500";
+});
 
 const textarea = document.getElementById("message");
 const counter = document.getElementById("counter");
