@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Inbox</title>
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
+
+<style>
+body{
+background:#111827;
+color:white;
+font-family:Arial,sans-serif;
+padding:20px;
+}
+
+.message{
+background:#1f2937;
+padding:15px;
+margin:10px 0;
+border-radius:12px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>📥 Inbox</h1>
+
+<div id="messages"></div>
+
+<script>
+
+const supabaseUrl = "YOUR_URL";
+const supabaseKey = "YOUR_KEY";
+
+const client =
+supabase.createClient(
+supabaseUrl,
+supabaseKey
+);
+
+async function loadMessages(){
+
+const { data, error } =
+await client
+.from("messages")
+.select("*")
+.order("id",{ascending:false});
+
+const container =
+document.getElementById("messages");
+
+container.innerHTML="";
+
+data.forEach(msg=>{
+
+container.innerHTML += `
+<div class="message">
+${msg.content}
+</div>
+`;
+
+});
+
+}
+
+loadMessages();
+
+</script>
+
+</body>
+</html>
