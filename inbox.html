@@ -29,6 +29,16 @@ padding:15px;
 margin:10px 0;
 border-radius:12px;
 }
+
+.message button{
+    background:#ef4444;
+    color:white;
+    border:none;
+    padding:8px 12px;
+    border-radius:8px;
+    cursor:pointer;
+    margin-top:10px;
+}
 </style>
 </head>
 
@@ -76,10 +86,13 @@ async function loadMessages(){
   data.forEach(msg=>{
 
     container.innerHTML += `
-    <div class="message">
-      ${msg.content}
-    </div>
-    `;
+<div class="message">
+    <p>${msg.content}</p>
+    <button onclick="deleteMessage(${msg.id})">
+        Delete
+    </button>
+</div>
+`;
 
   });
 
@@ -87,6 +100,21 @@ async function loadMessages(){
 
 
 loadMessages();
+
+async function deleteMessage(id){
+
+    const { error } = await client
+    .from("messages")
+    .delete()
+    .eq("id", id);
+
+    if(error){
+        alert("Failed to delete");
+        console.log(error);
+    }else{
+        loadMessages();
+    }
+}
 
 setInterval(() => {
     loadMessages();
