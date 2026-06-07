@@ -84,10 +84,9 @@ margin:40px auto;
     font-size:13px;
 }
  
-}
 textarea{
     width:100%;
-    min-height:180px;
+    height:180px;
     padding:20px;
 
     border:none;
@@ -102,6 +101,7 @@ textarea{
     box-sizing:border-box;
     resize:none;
 }
+
  textarea::placeholder{
     color:rgba(255,255,255,0.6);
  }
@@ -175,18 +175,35 @@ letter-spacing:3px;
 
 <div class="particles"></div>
 
-<div class="hero">
-    <h1>👾 Silent Drop</h1>
+<div class="card">
 
-    <p class="tagline">
-        Send anonymous messages securely and instantly.
-    </p>
+    <div class="hero">
+        <h1>👾 Silent Drop</h1>
 
-    <div class="features">
-        <span>🔒 Anonymous</span>
-        <span>⚡ Instant</span>
-        <span>🛡️ Secure</span>
+        <p class="tagline">
+            Send anonymous messages securely and instantly.
+        </p>
+
+        <div class="features">
+            <span>🔒 Anonymous</span>
+            <span>⚡ Instant</span>
+            <span>🛡 Secure</span>
+        </div>
     </div>
+
+    <textarea id="message"
+    placeholder="Type your message..."></textarea>
+
+    <p id="counter">0/500</p>
+
+    <button onclick="sendMessage()">
+        Send
+    </button>
+
+    <p class="credit">👾 Silent Drop • By Rehaan</p>
+
+    <p id="status"></p>
+
 </div>
 
 
