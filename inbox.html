@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Inbox</title>
-
+<title>📩 Inbox</title>
+<p id="count"></p>
+    
 <script>
 const password = prompt("Password");
 
@@ -17,42 +18,65 @@ if(password === "rehaan150609"){
 
 <style>
 body{
-background:#111827;
-color:white;
-font-family:Arial,sans-serif;
-padding:20px;
+    background: linear-gradient(135deg,#0f172a,#020617);
+    color:white;
+    font-family:Arial,sans-serif;
+    padding:20px;
+    min-height:100vh;
 }
 
 .message{
-background:#1f2937;
-padding:15px;
-margin:10px 0;
-border-radius:12px;
+    background: rgba(30,41,59,0.85);
+    backdrop-filter: blur(10px);
+    padding:20px;
+    margin:15px 0;
+    border-radius:20px;
+    border:1px solid rgba(255,255,255,0.05);
+    box-shadow:
+        0 8px 32px rgba(0,0,0,0.35);
+    transition:0.25s;
+    
+    border-left:4px solid #3b82f6;
 }
 
+
+.message:active{
+    transform:scale(0.98);
+}
+    
+.title{
+    font-size:42px;
+    margin-bottom:25px;
+    font-weight:700;
+}
+    
 .message small{
     color:#94a3b8;
-    font-size:12px;
+    font-size:13px;
     display:block;
-    margin-top:8px;
-    margin-bottom:8px;
+    margin-top:10px;
+    margin-bottom:12px;
 }
 
 .message button{
-    background:#ef4444;
+    background:linear-gradient(
+        135deg,
+        #ef4444,
+        #dc2626
+    );
     color:white;
     border:none;
-    padding:8px 12px;
-    border-radius:8px;
+    padding:10px 18px;
+    border-radius:12px;
     cursor:pointer;
-    margin-top:10px;
+    font-weight:bold;
 }
 </style>
 </head>
 
 <body>
 
-<h1>📥 Inbox</h1>
+<h1 class="title">📥 Silent Drop</h1>
 
 <div id="messages"></div>
 
@@ -117,6 +141,9 @@ async function loadMessages(){
 
 
 loadMessages();
+
+document.getElementById("count").innerText =
+data.length + " messages";
 
 async function deleteMessage(id){
 
