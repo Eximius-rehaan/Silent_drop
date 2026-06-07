@@ -85,24 +85,12 @@ async function loadMessages(){
 
 }
 
-const container =
-document.getElementById("messages");
-
-container.innerHTML="";
-
-data.forEach(msg=>{
-
-container.innerHTML += `
-<div class="message">
-${msg.content}
-</div>
-`;
-
-});
-
-}
 
 loadMessages();
+
+setInterval(() => {
+    loadMessages();
+}, 2000);
 
 </script>
 
