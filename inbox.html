@@ -165,9 +165,20 @@ async function deleteMessage(id){
     }
 }
 
-setInterval(() => {
-    loadMessages();
-}, 2000);
+client
+.channel('messages-channel')
+.on(
+    'postgres_changes',
+    {
+        event: '*',
+        schema: 'public',
+        table: 'messages'
+    },
+    () => {
+        loadMessages();
+    }
+)
+.subscribe();
 
 </script>
 
