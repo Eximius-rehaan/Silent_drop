@@ -2,7 +2,6 @@
 <html>
 <head>
 <title>📩 Inbox</title>
-<p id="count"></p>
     
 <script>
 const password = prompt("Password");
@@ -115,6 +114,9 @@ async function loadMessages(){
     return;
   }
 
+document.getElementById("count").innerText =
+"📨 " + data.length + " Messages";
+
   const container =
   document.getElementById("messages");
 
@@ -147,8 +149,6 @@ async function loadMessages(){
 
 loadMessages();
 
-document.getElementById("count").innerText =
-data.length + " messages";
 
 async function deleteMessage(id){
 
