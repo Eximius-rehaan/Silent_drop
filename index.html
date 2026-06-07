@@ -7,23 +7,23 @@
 
 <style>
 body{
-margin:0;
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
-font-family:Arial,sans-serif;
-overflow:hidden;
-background:linear-gradient(
-135deg,
-#0f172a,
-#312e81,
-#4c1d95,
-#1e293b
-);
-background-size:400% 400%;
-animation:gradient 15s ease infinite;
-color:white;
+    margin:0;
+    min-height:100vh;
+    padding:20px;
+    font-family:Arial,sans-serif;
+    overflow:auto;
+
+    background:linear-gradient(
+        135deg,
+        #0f172a,
+        #312e81,
+        #4c1d95,
+        #1e293b
+    );
+
+    background-size:400% 400%;
+    animation:gradient 15s ease infinite;
+    color:white;
 }
 
 @keyframes gradient{
@@ -35,8 +35,8 @@ color:white;
 .card{
 position:relative;
 z-index:2;
-width:90%;
-max-width:420px;
+width:100%;
+max-width:650px;
 padding:25px;
 border-radius:25px;
 background:rgba(255,255,255,0.08);
@@ -55,7 +55,8 @@ animation:cardFloat 6s ease-in-out infinite;
 
 .hero h1{
     margin:0;
-    font-size:42px;
+    font-size:56px;
+    line-height:1.1;
     font-weight:800;
 }
 
