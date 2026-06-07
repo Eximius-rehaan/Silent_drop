@@ -36,7 +36,7 @@ body{
     border: 1px solid rgba(255,255,255,0.12);
     border-left: 4px solid #3b82f6;
 
-    border-radius: 22px;
+    border-radius: 20px;
 
     padding: 18px;
     margin: 15px 0;
@@ -68,16 +68,11 @@ body{
 }
 
 .message button{
-    background:linear-gradient(
-        135deg,
-        #ef4444,
-        #dc2626
-    );
-    color:white;
+    background:#ef4444;
     border:none;
-    padding:10px 18px;
-    border-radius:12px;
-    cursor:pointer;
+    padding:8px 16px;
+    border-radius:10px;
+    color:white;
     font-weight:bold;
 }
 </style>
@@ -86,7 +81,8 @@ body{
 <body>
 
 <h1 class="title">📥 Silent Drop</h1>
-
+<p id="count"></p>
+    
 <div id="messages"></div>
 
 <script>
