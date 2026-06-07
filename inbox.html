@@ -136,9 +136,9 @@ document.getElementById("count").innerText =
 
     <br>
 
-    <button onclick="deleteMessage(${msg.id})">
-        Delete
-    </button>
+    <button onclick="if(confirm('Delete this message?')) deleteMessage(${msg.id})">
+    Delete
+</button>
 </div>
 `;
 
