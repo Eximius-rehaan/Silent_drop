@@ -193,6 +193,42 @@ letter-spacing:3px;
     color:rgba(255,255,255,0.7);
     margin-top:10px;
 }
+
+.how-it-works{
+    max-width:650px;
+    margin:40px auto;
+    padding:25px;
+    border-radius:20px;
+    background:rgba(255,255,255,0.08);
+    backdrop-filter:blur(15px);
+    border:1px solid rgba(255,255,255,0.15);
+    text-align:center;
+}
+
+.how-it-works h2{
+    margin-bottom:20px;
+    font-size:28px;
+}
+
+.steps{
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.step{
+    flex:1;
+    min-width:140px;
+    padding:15px;
+}
+
+.step span{
+    font-size:30px;
+    display:block;
+    margin-bottom:10px;
+}
+    
 </style>
 </head>
 
@@ -242,6 +278,31 @@ letter-spacing:3px;
 </button>
 </div>
 
+<div class="how-it-works">
+
+    <h2>How It Works</h2>
+
+    <div class="steps">
+
+        <div class="step">
+            <span>✍️</span>
+            <p>Write your message</p>
+        </div>
+
+        <div class="step">
+            <span>🚀</span>
+            <p>Send instantly</p>
+        </div>
+
+        <div class="step">
+            <span>👻</span>
+            <p>Stay anonymous</p>
+        </div>
+
+    </div>
+
+</div>
+    
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
 <script>
