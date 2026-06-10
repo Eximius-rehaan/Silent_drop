@@ -143,6 +143,18 @@ transition:0.3s;
     transform:translateY(-2px);
 }    
 
+.share-section{
+    text-align:center;
+    margin-top:80px;
+    padding-bottom:60px;
+}
+
+.share-text{
+    color:rgba(255,255,255,0.7);
+    margin-top:15px;
+    font-size:14px;
+}
+    
 button:hover{
 transform:scale(1.03);
 box-shadow:0 0 25px rgba(139,92,246,.7)
@@ -209,9 +221,16 @@ letter-spacing:3px;
             <span>🛡 Secure</span>
         </div>
         
-        <button class="copy-btn" onclick="copyLink()">
-📋 Copy Link
-        </button>
+<div class="share-section">
+    <button class="copy-btn" onclick="copyLink()">
+        🔗 Share My Silent Drop
+    </button>
+
+    <p class="share-text">
+        Share your link and receive anonymous messages.
+    </p>
+</div>
+        
     </div>
 
     <textarea id="message"
