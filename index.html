@@ -351,6 +351,10 @@ supabaseKey
 const textarea = document.getElementById("message");
 const counter = document.getElementById("counter");
 
+let repeatCount = 0;
+let lastMessage = "";
+let lastRepeatTime = 0;
+    
 textarea.addEventListener("input", () => {
   counter.innerText = textarea.value.length + "/500";
 });
@@ -366,6 +370,28 @@ showToast("✍️ Write a message first","error");
 return;
 }
 
+const cleanMsg = msg.trim().toLowerCase();
+const now = Date.now();
+
+if(cleanMsg === lastMessage){
+
+    repeatCount++;
+
+    if(repeatCount >= 3 &&
+       now - lastRepeatTime < 5000){
+
+        showToast(
+            "⏳ Wait 5 seconds before repeating again",
+            "error"
+        );
+        return;
+    }
+
+}else{
+
+    repeatCount = 0;
+}
+    
 const { error } =
 await client
 .from("messages")
@@ -378,6 +404,10 @@ showToast("❌ Failed to send","error");
 }
     
 else{
+
+lastMessage = cleanMsg;
+lastRepeatTime = Date.now();
+    
 showToast("✅ Message Delivered","success");
 document.getElementById("message").value="";
 counter.innerText = "0/500";
