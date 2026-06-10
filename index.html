@@ -143,17 +143,6 @@ transition:0.3s;
     transform:translateY(-2px);
 }    
 
-.share-section{
-    text-align:center;
-    margin-top:80px;
-    padding-bottom:60px;
-}
-
-.share-text{
-    color:rgba(255,255,255,0.7);
-    margin-top:15px;
-    font-size:14px;
-}
     
 button:hover{
 transform:scale(1.03);
@@ -202,6 +191,10 @@ letter-spacing:3px;
 </style>
 </head>
 
+<button class="copy-btn" onclick="copyLink()">
+    🔗 Share Silent Drop
+</button>
+
 <body>
 
 <div class="particles"></div>
@@ -222,13 +215,8 @@ letter-spacing:3px;
         </div>
         
 <div class="share-section">
-    <button class="copy-btn" onclick="copyLink()">
-        🔗 Share Silent Drop
-    </button>
+    
 
-    <p class="share-text">
-        One tap to share....
-    </p>
 </div>
         
     </div>
