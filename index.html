@@ -143,6 +143,11 @@ transition:0.3s;
     transform:translateY(-2px);
 }    
 
+.copy-btn{
+    max-width:650px;
+    margin:20px auto;
+    display:block;
+}
     
 button:hover{
 transform:scale(1.03);
@@ -231,7 +236,11 @@ letter-spacing:3px;
     <p id="status"></p>
 
 </div>
-
+    
+<button class="copy-btn" onclick="copyLink()">
+    🔗 Share Silent Drop
+</button>
+</div>
 
 <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js"></script>
 
@@ -292,12 +301,7 @@ function copyLink(){
     alert("✅ Link copied!");
 }
 
-<button class="copy-btn" onclick="copyLink()">
-    🔗 Share Silent Drop
-</button>
-    </div>
     
 </script>
 
-</body>
 </html>
