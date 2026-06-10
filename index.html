@@ -124,6 +124,25 @@ cursor:pointer;
 transition:0.3s;
 }
 
+.copy-btn{
+    margin-top:15px;
+    padding:12px 20px;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+
+    background:rgba(255,255,255,0.1);
+    color:white;
+
+    backdrop-filter:blur(10px);
+
+    transition:0.3s;
+}
+
+.copy-btn:hover{
+    transform:translateY(-2px);
+}    
+
 button:hover{
 transform:scale(1.03);
 box-shadow:0 0 25px rgba(139,92,246,.7)
@@ -189,6 +208,10 @@ letter-spacing:3px;
             <span>⚡ Instant</span>
             <span>🛡 Secure</span>
         </div>
+        
+        <button class="copy-btn" onclick="copyLink()">
+📋 Copy Link
+        </button>
     </div>
 
     <textarea id="message"
@@ -256,6 +279,14 @@ document.getElementById("status").innerText =
 document.getElementById("message").value="";
 }
 
+}
+function copyLink(){
+
+    navigator.clipboard.writeText(
+        window.location.href
+    );
+
+    alert("✅ Link copied!");
 }
 
 </script>
