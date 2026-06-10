@@ -362,7 +362,6 @@ const msg =
 document.getElementById("message").value;
 
 if(!msg){
-document.getElementById("status").innerText =
 showToast("✍️ Write a message first");
 return;
 }
@@ -375,12 +374,13 @@ await client
 ]);
 
 if(error){
-document.getElementById("status").innerText =
-;showToast("❌ Failed to send");
+showToast("❌ Failed to send");
 }
+    
 else{
 showToast("✅ Message Delivered");
 document.getElementById("message").value="";
+counter.innerText = "0/500";
 }
 
 }
