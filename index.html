@@ -362,7 +362,7 @@ const msg =
 document.getElementById("message").value;
 
 if(!msg){
-showToast("✍️ Write a message first");
+showToast("✍️ Write a message first","error");
 return;
 }
 
@@ -374,11 +374,11 @@ await client
 ]);
 
 if(error){
-showToast("❌ Failed to send");
+showToast("❌ Failed to send","error");
 }
     
 else{
-showToast("✅ Message Delivered");
+showToast("✅ Message Delivered","success");
 document.getElementById("message").value="";
 counter.innerText = "0/500";
 }
@@ -390,20 +390,34 @@ function copyLink(){
         window.location.href
     );
 
-    alert("✅ Link copied!");
+    showToast("🔗 Link Copied","info");
 }
 
-function showToast(message){
+function showToast(message, type = "success"){
 
-    const toast = document.getElementById("toast");
+const toast = document.getElementById("toast");
 
-    toast.innerText = message;
+toast.innerText = message;
 
-    toast.classList.add("show");
+toast.className = "toast";
 
-    setTimeout(() => {
-        toast.classList.remove("show");
-    }, 2500);
+if(type === "success"){
+    toast.style.boxShadow = "0 0 20px rgba(0,255,120,.5)";
+}
+
+if(type === "error"){
+    toast.style.boxShadow = "0 0 20px rgba(255,60,60,.5)";
+}
+
+if(type === "info"){
+    toast.style.boxShadow = "0 0 20px rgba(0,150,255,.5)";
+}
+
+toast.classList.add("show");
+
+setTimeout(() => {
+    toast.classList.remove("show");
+}, 2500);
 
 }
     
