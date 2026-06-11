@@ -3,6 +3,7 @@
   "short_name": "Silent Drop",
   "start_url": "./",
   "display": "standalone",
+  "description": "Send anonymous messages securely and instantly.",
   "background_color": "#312e81",
   "theme_color": "#312e81",
   "orientation": "portrait",
