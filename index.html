@@ -260,6 +260,30 @@ letter-spacing:3px;
     bottom:50px;
 }
 
+.download-btn{
+    display:block;
+    text-align:center;
+    margin:20px auto;
+    padding:16px;
+    width:90%;
+    max-width:500px;
+
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(20px);
+
+    border-radius:18px;
+    text-decoration:none;
+    color:white;
+    font-weight:bold;
+    font-size:18px;
+
+    transition:0.3s;
+}
+
+.download-btn:hover{
+    transform:translateY(-2px);
+}
+
 .footer{
     text-align:center;
     margin:80px 0 30px;
@@ -315,6 +339,13 @@ letter-spacing:3px;
 <button class="copy-btn" onclick="copyLink()">
     🔗 Share Silent Drop
 </button>
+
+<a href="https://github.com/Eximius-rehaan/Silent_drop/raw/main/app-release-signed.apk"
+   class="download-btn"
+   download>
+   📱 Download Android App
+   </a>
+
 </div>
 
 <div class="how-it-works">
